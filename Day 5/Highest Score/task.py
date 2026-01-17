@@ -1,0 +1,26 @@
+student_scores = [150, 142, 185, 120, 171, 184, 149, 24, 59, 68, 199, 78, 65, 89, 86, 55, 91, 64, 89]
+print(len(student_scores))
+
+print(sum(student_scores))
+soma = 0
+for score in student_scores:
+    soma += score
+
+print(soma)
+
+
+print(max(student_scores))
+max_score = 0
+for score in student_scores:
+    if score > max_score:
+        max_score = score
+
+print(max_score)
+
+print(min(student_scores))
+min_score = 1000
+for score in student_scores:
+    if score < min_score:
+        min_score = score
+
+print(min_score)
