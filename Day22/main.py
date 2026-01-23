@@ -1,7 +1,7 @@
 from turtle import Turtle, Screen
-from scoreboard import ScoreBoard
-from paddle import Paddle
-from ball import Ball
+from modules.scoreboard import ScoreBoard
+from modules.paddle import Paddle
+from modules.ball import Ball
 import time
 
 screen = Screen()
@@ -16,10 +16,10 @@ ball = Ball()
 scoreboard = ScoreBoard()
 
 screen.listen()
-screen.onkey(r_paddle.move_up, "Up")
-screen.onkey(r_paddle.move_down, "Down")
-screen.onkey(l_paddle.move_up, "w")
-screen.onkey(l_paddle.move_down, "s")
+screen.onkeypress(r_paddle.move_up, "Up")
+screen.onkeypress(r_paddle.move_down, "Down")
+screen.onkeypress(l_paddle.move_up, "w")
+screen.onkeypress(l_paddle.move_down, "s")
 
 game_is_on = True
 while game_is_on:
