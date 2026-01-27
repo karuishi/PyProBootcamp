@@ -47,6 +47,20 @@ squirrel_data = pd.read_csv("squirrel_data.csv")
 # data.to_csv("new_data.csv")
 # print(data)
 
-fur_list = squirrel_data["Primary Fur Color"].to_list()
-fur_sum = squirrel_data["Primary Fur Color"].sum()
-print(fur_list)
+gray_squirrels = squirrel_data[squirrel_data["Primary Fur Color"] == "Gray"]
+#print(gray_squirrels)
+
+gray_squirrels_count = len(squirrel_data[squirrel_data["Primary Fur Color"] == "Gray"])
+red_squirrels_count = len(squirrel_data[squirrel_data["Primary Fur Color"] == "Cinnamon"])
+black_squirrels_count = len(squirrel_data[squirrel_data["Primary Fur Color"] == "Black"])
+print(gray_squirrels_count)
+print(red_squirrels_count)
+print(black_squirrels_count)
+
+data_dict = { 
+    "Fur Color" : ["Gray", "Cinnamon", "Black"],
+    "Count" : [gray_squirrels_count, red_squirrels_count, black_squirrels_count]
+}
+
+df = pd.DataFrame(data_dict)
+df.to_csv("squirrel_count.csv")
