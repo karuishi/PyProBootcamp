@@ -1,5 +1,5 @@
 # Keyword Method with iterrows()
-# {new_key:new_value for (index, row) in df.iterrows()}
+# new_dict = {new_key:new_value for (index, row) in df.iterrows()}
 
 import pandas
 
