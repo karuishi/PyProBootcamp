@@ -18,16 +18,14 @@ class DataManager:
         self.users_data = {}
 
     def get_destination_data(self):
-        # Use the Sheety API to GET all the data in that sheet and print it out.
-        response = requests.get(url=self._prices_endpoint)
+        response = requests.get(url=self._prices_endpoint, auth=self._authorization)
         data = response.json()
+    
+        if "prices" not in data:
+            print("Error fetching data:", data)
         self.destination_data = data["prices"]
-        # Try importing pretty print and printing the data out again using pprint() to see it formatted.
-        # pprint(data)
         return self.destination_data
 
-    # In the DataManager Class make a PUT request and use the row id from sheet_data
-    # to update the Google Sheet with the IATA codes. (Do this using code).
     def update_destination_codes(self):
         for city in self.destination_data:
             new_data = {
@@ -37,12 +35,13 @@ class DataManager:
             }
             response = requests.put(
                 url=f"{self._prices_endpoint}/{city['id']}",
-                json=new_data
+                json=new_data,
+                auth=self._authorization
             )
             print(response.text)
 
     def get_customer_email(self):
-        response = requests.get(url=self._users_endpoint)
+        response = requests.get(url=self._users_endpoint, auth=self._authorization)
         data = response.json()
         self.users_data = data["users"]
         return self.users_data
