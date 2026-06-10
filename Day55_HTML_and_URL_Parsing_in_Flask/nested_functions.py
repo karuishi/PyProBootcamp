@@ -96,6 +96,8 @@ It returns the cleaned list: ['Python', 'Inner Function'].
 """ 
 Example 2: This example uses an inner function as a wrapper to log details before calling the actual function. 
 It's a common use case in decorators.
+Decorators let you add extra behavior to a function, without changing the function's code.
+A decorator is a function that takes another function as input and returns a new function.
 """
 import logging
 logging.basicConfig(level=logging.INFO) 
